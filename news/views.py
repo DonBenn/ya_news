@@ -1,8 +1,8 @@
-from django.conf import settings
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import get_object_or_404
-from django.urls import reverse
-from django.views import generic
+from django.conf import settings  # type: ignore
+from django.contrib.auth.mixins import LoginRequiredMixin  # type: ignore
+from django.shortcuts import get_object_or_404  # type: ignore
+from django.urls import reverse  # type: ignore
+from django.views import generic  # type: ignore
 
 from .forms import CommentForm
 from .models import Comment, News
@@ -12,6 +12,7 @@ class NewsList(generic.ListView):
     """Список новостей."""
     model = News
     template_name = 'news/home.html'
+    context_object_name = 'news_feed'
 
     def get_queryset(self):
         """
